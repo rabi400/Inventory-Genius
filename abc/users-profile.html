@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Data</h1>
+        <div class="nav">
+            <!-- Navigation links (if needed) -->
+        </div>
+        <form id="userForm">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" required>
+
+            <label for="contactNumber">Contact Number:</label>
+            <input type="text" id="contactNumber" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" required>
+
+            <button type="submit">Add User</button>
+        </form>
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Contact Number</th>
+                    <th>Email</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added dynamically here -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function getUserData() {
+            const userData = localStorage.getItem('userData');
+            return userData ? JSON.parse(userData) : [];
+        }
+
+        function saveUserData(userData) {
+            localStorage.setItem('userData', JSON.stringify(userData));
+        }
+
+        function updateTable() {
+            const userData = getUserData();
+            const tableBody = document.querySelector('#userTable tbody');
+            tableBody.innerHTML = '';
+
+            userData.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user.fullName}</td>
+                    <td>${user.contactNumber}</td>
+                    <td>${user.email}</td>
+                    <td>${user.location}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const contactNumber = document.getElementById('contactNumber').value;
+            const email = document.getElementById('email').value;
+            const location = document.getElementById('location').value;
+
+            const userData = getUserData();
+            userData.push({ fullName, contactNumber, email, location });
+            saveUserData(userData);
+            
+            // Clear form fields
+            document.getElementById('userForm').reset();
+
+            // Update the table with the new data
+            updateTable();
+        });
+
+        // Initial load of user data
+        updateTable();
+    </script>
+</body>
+</html>

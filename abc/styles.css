@@ -1,0 +1,197 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container to hold sidebar and main content */
+.container {
+    display: flex;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: #33475b;
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li {
+    margin-bottom: 15px;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu ul li a:hover {
+    background-color: #2a3c50;
+}
+
+/* Main content styles */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 28px;
+    color: #33475b;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+/* Dashboard content styles */
+.dashboard {
+    margin-top: 20px;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.stat-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    flex-grow: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item h3 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.stat-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+.charts {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.chart-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+    
+    .stats {
+        flex-direction: column;
+    }
+    
+    .charts {
+        flex-direction: column;
+    }
+    
+    .chart-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 24px;
+    }
+    
+    .search-bar input {
+        width: 150px;
+    }
+    
+    .search-bar button {
+        padding: 8px 15px;
+    }
+}

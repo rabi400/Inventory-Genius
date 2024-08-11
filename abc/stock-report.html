@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Report</h1>
+        <div class="nav">
+            <a href="sales_report.html">Sales Report</a>
+        </div>
+        <form id="stockForm">
+            <div class="form-group">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" required>
+            </div>
+            <div class="form-group">
+                <label for="brand">Brand:</label>
+                <input type="text" id="brand" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" id="price" required>
+            </div>
+            <div class="form-group">
+                <label for="stockNumber">Number of Stock:</label>
+                <input type="number" id="stockNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="color">Color Type:</label>
+                <input type="text" id="color" required>
+            </div>
+            <button type="submit">Add Product</button>
+        </form>
+        <table id="stockTable">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Number of Stock</th>
+                    <th>Color Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added dynamically here -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function getStockData() {
+            const stockData = localStorage.getItem('stockData');
+            return stockData ? JSON.parse(stockData) : [];
+        }
+
+        function saveStockData(stockData) {
+            localStorage.setItem('stockData', JSON.stringify(stockData));
+        }
+
+        function updateTable() {
+            const stockData = getStockData();
+            const tableBody = document.querySelector('#stockTable tbody');
+            tableBody.innerHTML = '';
+
+            stockData.forEach(stock => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${stock.productName}</td>
+                    <td>${stock.brand}</td>
+                    <td>${stock.price}</td>
+                    <td>${stock.stockNumber}</td>
+                    <td>${stock.color}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        document.getElementById('stockForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const productName = document.getElementById('productName').value;
+            const brand = document.getElementById('brand').value;
+            const price = document.getElementById('price').value;
+            const stockNumber = document.getElementById('stockNumber').value;
+            const color = document.getElementById('color').value;
+
+            const stockData = getStockData();
+            stockData.push({ productName, brand, price, stockNumber, color });
+            saveStockData(stockData);
+            
+            // Clear form fields
+            document.getElementById('stockForm').reset();
+
+            // Update the table with the new data
+            updateTable();
+        });
+
+        // Initial load of stock data
+        updateTable();
+    </script>
+</body>
+</html>

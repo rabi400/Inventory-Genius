@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Hope UI</h1>
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-list"></i>
+                        Menu Style
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-palette"></i>
+                        Design System
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-shopping-cart"></i>
+                        E-Commerce
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-users"></i>
+                        Social
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-blog"></i>
+                        Blog
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="far fa-calendar-alt"></i>
+                        Appointment
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="far fa-folder-open"></i>
+                        File Manager
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="far fa-comment-dots"></i>
+                        Chat
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="far fa-envelope"></i>
+                        Mail
+                    </a>
+                </li>
+                <li class="pages">
+                    PAGES
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-file"></i>
+                                Special Pages
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="header">
+                
+                <a href="#" class="home">Home</a>
+                <a href="#" class="pages">Pages</a>
+                <a href="#" class="elements">Elements</a>
+                <div class="search">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+            <div class="content">
+                <div class="quick-insights">
+                    <h2>Quick Insights</h2>
+                    <div class="financial-dashboard">
+                        <p>Financial Dashboard</p>
+                        <div class="switch">
+                            <input type="checkbox" id="online">
+                            <label for="online">Online</label>
+                        </div>
+                        <div class="date-range">
+                            <select>
+                                <option value="past-30-days">Past 30 Days</option>
+                            </select>
+                            <input type="text" value="24 Jan 2022 to 23 Feb 2022" readonly>
+                            <button class="analytics">Analytics</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <a href="sales-report.html">
+                                    <h3>Sales Report</h3>
+                                    <p class="value">$199,556</p>
+                                    <p class="last-updated">Last updated 1 hour ago.</p>
+                                    <canvas id="gross-volume-chart"></canvas>
+                                    <button class="view">View</button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <h3>Stock Report</h3>
+                                <p class="value">$2590</p>
+                                <p class="last-updated">Available to pay out.</p>
+                                <button class="request-payout">Request Payout</button>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <h3>Last Transaction</h3>
+                                <p class="value">$58,556</p>
+                                <p class="last-updated">This Month</p>
+                                <button class="view-report">View Report</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <h3>No Of Payments</h3>
+                                <p class="value">367</p>
+                                <p class="last-updated">Transactions this month</p>
+                                <button class="view">View</button>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <div class="transaction-list">
+                                    <div class="transaction">
+                                        <i class="fas fa-download"></i>
+                                        <p>Received</p>
+                                        <p class="value">$5,674</p>
+                                    </div>
+                                    <div class="transaction">
+                                        <i class="fas fa-exchange-alt"></i>
+                                        <p>Transferred</p>
+                                        <p class="value">$1,624</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <h3>Send Money To</h3>
+                                <div class="contacts">
+                                    <div class="contact">
+                                        <img src="https://via.placeholder.com/50" alt="Contact">
+                                    </div>
+                                    <div class="contact">
+                                        <img src="https://via.placeholder.com/50" alt="Contact">
+                                    </div>
+                                    <div class="contact">
+                                        <img src="https://via.placeholder.com/50" alt="Contact">
+                                    </div>
+                                    <div class="contact">
+                                        <img src="https://via.placeholder.com/50" alt="Contact">
+                                    </div>
+                                    <div class="contact">
+                                        <img src="https://via.placeholder.com/50" alt="Contact">
+                                    </div>
+                                </div>
+                                <select>
+                                    <option value="select-account">Select Your Account</option>
+                                </select>
+                                <select>
+                                    <option value="enter-amount">Enter Amount in USD</option>
+                                </select>
+                                <button class="send-money">Send Money</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <h3>Net Volumes From Sales</h3>
+                            <p class="last-updated">This year</p>
+                            <canvas id="net-volumes-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <h3>Payments</h3>
+                            <div class="payment-list">
+                                <div class="payment">
+                                    <p class="value">$1,833</p>
+                                    <p class="last-updated">hui_vxnnjigakm</p>
+                                    <p class="last-updated">1 Hour Ago</p>
+                                    <button class="processed">Processed</button>
+                                </div>
+                                <div class="payment">
+                                    <p class="value">$1,204</p>
+                                    <p class="last-updated">hui_uwsxaiuhhs</p>
+                                    <p class="last-updated">23 Days Ago</p>
+                                    <button class="processed">Processed</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <h3>Settlements</h3>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <h3>Refunds</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

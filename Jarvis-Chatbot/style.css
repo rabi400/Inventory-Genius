@@ -1,0 +1,343 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.main {
+    flex: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.header a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.search {
+    position: relative;
+}
+
+.search input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.search i {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    color: #333;
+}
+
+.user {
+    font-size: 24px;
+    color: #333;
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.quick-insights {
+    margin-bottom: 20px;
+}
+
+.quick-insights h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.financial-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.financial-dashboard p {
+    margin: 0;
+    color: #333;
+}
+
+.switch {
+    display: flex;
+    align-items: center;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch label {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.switch input:checked + label {
+    background-color: #f0f0f0;
+}
+
+.date-range {
+    display: flex;
+    align-items: center;
+}
+
+.date-range select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.date-range input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.analytics {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.analytics:hover {
+    background-color: #f0f0f0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.col {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card .last-updated {
+    margin: 0;
+    color: #333;
+}
+
+.view {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view:hover {
+    background-color: #f0f0f0;
+}
+
+.request-payout {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.request-payout:hover {
+    background-color: #f0f0f0;
+}
+
+.view-report {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-report:hover {
+    background-color: #f0f0f0;
+}
+
+.transaction-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.transaction i {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.transaction p {
+    margin: 0;
+    color: #333;
+}
+
+.transaction .value {
+    font-weight: bold;
+    color: #333;
+}
+
+.send-money {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-money:hover {
+    background-color: #0056b3;
+}
+
+.contacts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.payment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.payment .value {
+    font-weight: bold;
+    color: #333;
+}
+
+.processed {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.processed:hover {
+    background-color: #3e8e41;
+}

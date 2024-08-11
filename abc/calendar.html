@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        select {
+            display: block;
+            margin: 0 auto 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Revenue Report</h1>
+        <div class="nav">
+            <a href="stock_report.html">Stock Report</a>
+            <a href="sales_report.html">Sales Report</a>
+            <a href="user_data.html">User Data</a>
+        </div>
+        <select id="timePeriod">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+        </select>
+        <table id="revenueTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added dynamically here -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // Sample revenue data
+        const revenueData = {
+            daily: [
+                { date: '2024-08-10', revenue: '$1500' },
+                { date: '2024-08-11', revenue: '$2000' }
+            ],
+            weekly: [
+                { date: '2024-08-01 - 2024-08-07', revenue: '$10500' },
+                { date: '2024-08-08 - 2024-08-14', revenue: '$12000' }
+            ],
+            monthly: [
+                { date: '2024-08', revenue: '$45000' },
+                { date: '2024-07', revenue: '$50000' }
+            ],
+            yearly: [
+                { date: '2024', revenue: '$600000' },
+                { date: '2023', revenue: '$650000' }
+            ]
+        };
+
+        function updateTable(timePeriod) {
+            const tableBody = document.querySelector('#revenueTable tbody');
+            tableBody.innerHTML = '';
+
+            revenueData[timePeriod].forEach(revenue => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${revenue.date}</td>
+                    <td>${revenue.revenue}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        document.getElementById('timePeriod').addEventListener('change', function() {
+            const selectedPeriod = this.value;
+            updateTable(selectedPeriod);
+        });
+
+        // Initial load with default period (daily)
+        updateTable('daily');
+    </script>
+</body>
+</html>

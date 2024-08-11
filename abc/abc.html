@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Rubick</h2>
+            </div>
+           
+            
+            <nav class="menu">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="sales-report.html">Sales Report</a></li>
+                    <li><a href="stock-report.html">Stock Report</a></li>
+                    <li><a href="customer-engagement.html">Customer Engagement</a></li>
+                  <li><a href="inbox.html">Inbox</a></li>
+                    <li><a href="file-manager.html">File Manager</a></li>
+                    <li><a href="point-of-sale.html">Point of Sale</a></li>
+                    <li><a href="salesreturn.html">Chat</a></li>
+                    <li><a href="post.html">Post</a></li>
+                    <li><a href="REVENUE.html">Calendar</a></li>
+                    <li><a href="users-profile.html">Users Profile</a></li>
+                    <li><a href="order.html">Inbox</a></li>
+                    <li><a href="shiping.html">File Manager</a></li>
+                </ul>
+            </nav>
+            
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Dashboard</h1>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button>Search</button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <section class="dashboard">
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>4,710</h3>
+                        <p>Item Sales</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>3,721</h3>
+                        <p>New Orders</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2,149</h3>
+                        <p>Total Products</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>152,040</h3>
+                        <p>Unique Visitors</p>
+                    </div>
+                </div>
+
+                <div class="charts">
+                    <div class="chart-item">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                    <div class="chart-item">
+                        <canvas id="topSellerChart"></canvas>
+                    </div>
+                    <div class="chart-item">
+                        <canvas id="salesReportChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

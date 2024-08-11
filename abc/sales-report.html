@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        select {
+            display: block;
+            margin: 0 auto 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sales Report</h1>
+        <div class="nav">
+            <a href="stock_report.html">Stock Report</a>
+        </div>
+        <select id="timePeriod">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="yearly">Yearly</option>
+        </select>
+        <table id="salesTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Product</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added dynamically here -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function getStockData() {
+            const stockData = localStorage.getItem('stockData');
+            return stockData ? JSON.parse(stockData) : [];
+        }
+
+        function updateTable(timePeriod) {
+            // Example sales data for each period (could be dynamic in real application)
+            const salesData = {
+                daily: [
+                    { date: '2024-08-10', product: 'T-Shirt', amount: '$50' },
+                    { date: '2024-08-10', product: 'Jeans', amount: '$100' }
+                ],
+                weekly: [
+                    { date: '2024-08-01 - 2024-08-07', product: 'T-Shirt', amount: '$350' },
+                    { date: '2024-08-01 - 2024-08-07', product: 'Jeans', amount: '$700' }
+                ],
+                yearly: [
+                    { date: '2024', product: 'T-Shirt', amount: '$4000' },
+                    { date: '2024', product: 'Jeans', amount: '$8000' }
+                ]
+            };
+
+            const tableBody = document.querySelector('#salesTable tbody');
+            tableBody.innerHTML = '';
+
+            salesData[timePeriod].forEach(sale => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${sale.date}</td>
+                    <td>${sale.product}</td>
+                    <td>${sale.amount}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        document.getElementById('timePeriod').addEventListener('change', function() {
+            const selectedPeriod = this.value;
+            updateTable(selectedPeriod);
+        });
+
+        // Initial load with default period (daily)
+        updateTable('daily');
+    </script>
+</body>
+</html>
